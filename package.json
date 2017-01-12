@@ -1,0 +1,13 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "main": "webpack.config.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot --inline --watch"
+  },
+  "dependencies": {
+    "webpack": "^2.1.0-beta.25",
+    "webpack-async-await": "^1.1.0",
+    "webpack-dev-server": "^2.1.0-beta.10"
+  }
+}

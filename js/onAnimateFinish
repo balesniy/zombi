@@ -1,0 +1,21 @@
+import {getClosest, getCircleStep, onCollision as circleCollision, has as circlesHas} from './circlesCollection'
+import {onCollision as elementCollision} from './elementsCollection'
+import {solveInverse, solveDirect} from './geo'
+export default (targetPoint) => {
+  return (intersect) => {
+    if (!intersect || circlesHas(targetPoint) || !elementCollision(targetPoint)) {
+      return false
+    }
+    //const [prev, next] = intersect;
+    //console.log(prev, next) // todo get direction
+    const { closest, center, radius } = getClosest(targetPoint);
+    const step = getCircleStep(targetPoint, closest);
+    const circleStrength = circleCollision(closest);
+    const { direction, pathFunction } = solveInverse(center, targetPoint.geometry.getCoordinates());
+    const { point: start } = pathFunction(1.05);
+    if (!circleStrength) return [start];
+    const { point: viaPoint1 } = pathFunction(1 + step / radius);
+    const viaPoint2 = solveDirect(center, direction, step + radius);
+    return [start, viaPoint1, viaPoint2];
+  };
+}

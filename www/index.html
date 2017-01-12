@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&load=collection.Item,control.FullscreenControl,control.ZoomControl,util.augment,Map,Placemark,templateLayoutFactory,coordSystem.geo,multiRouter.MultiRoute,Circle,geoQuery,geocode" type="text/javascript"></script>
+    <script src="/app.bundle.js"></script>
+    <style>
+        #map {
+            width: 1200px;
+            height: 800px;
+            padding: 20px;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            margin: -430px 0 0 -630px;
+
+            border: 10px green solid;
+        }
+
+        .customControl {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 3px;
+            max-width: 200px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .my-hint {
+            display: inline-block;
+            padding: 5px;
+            height: 30px;
+            position: relative;
+            left: -25px;
+            top: -95px;
+            width: 30px;
+            font-size: 12px;
+            line-height: 30px;
+            color: #333333;
+            text-align: center;
+            vertical-align: middle;
+            background-color: rgba(0, 120, 50, 0.7);
+            border: 2px solid #CDB7B5;
+            border-radius: 30px;
+            font-family: Arial;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+</body>
+</html>
